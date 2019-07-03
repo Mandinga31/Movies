@@ -3,32 +3,32 @@
     <h1>{{ Titulo }}</h1>
     <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld v-bind:msg="titulo"/>
+    <form class="form-inline" v-on:submit.prevent ="miMetodo">
+    </form>
   </div>
 </template> 
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/Navbar.vue'
+import Content from './components/Content.vue'
+import { Script } from 'vm';
 
 export default {
   name: 'app',
   components: {
-    Navbar
+    Navbar,
+    Content
   },
-  data() {
+  data(){
     return {
-      titulo:"proyecto vue cli"
-    } 
-  }
+     MovieTitleToSearch:''
+    }
+    },
+    
+    methods:{
+      searchMovie: function (title) {
+          this.movieTitleToSearch = title
+            } 
+}
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
